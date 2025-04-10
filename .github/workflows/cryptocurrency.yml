@@ -3,7 +3,7 @@ name: cryptocurrency-workflow
 on:
   # push: # uncomment to run on push
   schedule:
-    - cron: "35 0 * * *" # run every day at 15:41AM
+    - cron: "35 0 * * *" # run every day at 15:46AM
     # - cron: "*/5 * * * *" # run every day at every 5 min (15min in real)
   workflow_dispatch:  # manual triggers
 
