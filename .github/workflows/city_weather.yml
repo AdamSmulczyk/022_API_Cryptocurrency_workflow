@@ -1,9 +1,9 @@
-name: city-weather-workflow
+name: cryptocurrency-workflow
 
 on:
   # push: # uncomment to run on push
   schedule:
-    - cron: "35 0 * * *" # run every day at 12:35AM
+    - cron: "35 0 * * *" # run every day at 15:35AM
     # - cron: "*/5 * * * *" # run every day at every 5 min (15min in real)
   workflow_dispatch:  # manual triggers
 
@@ -14,7 +14,7 @@ jobs:
       - name: Checkout repo content
         uses: actions/checkout@v4
         with:
-          token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}  # Use the PAT instead of the default GITHUB_TOKEN
+          token: ${{ secrets.TOKEN_CRYPTOCURRENCY }}  # Use the PAT instead of the default GITHUB_TOKEN
       - name: Setup python
         uses: actions/setup-python@v5
         with:
@@ -24,8 +24,8 @@ jobs:
         run: pip install -r requirements.txt
       - name: Run data pipeline
         env:
-           api_key: ${{ secrets.api_key }} # import API key
-        run: python city_weather.py # run data pipeline
+           api_key: ${{ secrets.API_CRYPTOCURRENCY }} # import API key
+        run: python main_cc.py # run data pipeline
       - name: Check for changes # create env variable indicating if any changes were made
         id: git-check
         run: |
